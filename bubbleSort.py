@@ -1,6 +1,8 @@
 import random
 from datetime import datetime
-
+'''
+Bubblesort is inefficient and this was made for practice and demonstration only
+'''
 #Amount of items to add to the list to sort
 iterationCount = 15
 
