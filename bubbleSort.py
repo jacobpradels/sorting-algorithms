@@ -6,16 +6,21 @@ Bubblesort is inefficient and this was made for practice and demonstration only
 #Amount of items to add to the list to sort
 iterationCount = 15
 
+#Accumulator for the amount of changes made
+global stepsTaken;
+stepsTaken = 0
+
 #Variable used to track processing time
 startTime = datetime.now()
 
 #List that is used to store data that is sorted
 list_of_variables = []
 
-#Generate the data
+#Generate the data and randomize it
 def initList():
     for x in range(iterationCount):
         list_of_variables.append('*'*(x+1))
+    random.shuffle(list_of_variables)
 
 #Display the data formatted
 def displayList(inputList):
@@ -24,12 +29,13 @@ def displayList(inputList):
 
 #Apply the bubble sort algorithm
 def sortList(inputList):
+    global stepsTaken;
     for x in range(len(inputList)):
-        if x != len(inputList)-1:
-            if (len(inputList[x]) < len(inputList[x+1])):
-                tempVar = inputList[x]
-                inputList[x] = inputList[x+1]
-                inputList[x+1] = tempVar
+        if x != len(inputList)-1 and (len(inputList[x]) < len(inputList[x+1])):
+            tempVar = inputList[x]
+            inputList[x] = inputList[x+1]
+            inputList[x+1] = tempVar
+            stepsTaken += 1
 
 #Function for iterating the sorting algorithm n times
 def repeatMainLoop(n):
@@ -40,15 +46,13 @@ def repeatMainLoop(n):
 def checkSorted(inputList):
     sorted = True
     for x in range(len(inputList)):
-        if x != len(inputList)-1:
-            if (len(inputList[x]) < len(inputList[x+1])):
-                sorted = False
+        if x != len(inputList)-1 and (len(inputList[x]) < len(inputList[x+1])):
+            sorted = False
     return sorted
 
 #Main Function
 def main():
     initList()
-    random.shuffle(list_of_variables)
     displayList(list_of_variables)
     print('-'*15)
     while (not checkSorted(list_of_variables)):
@@ -58,4 +62,4 @@ main()
 
 #Determine final execution time and display it
 endTime = str(datetime.now() - startTime)
-print("executed in " + endTime[6:len(endTime) - 1] + " seconds")
+print("executed in " + endTime[6:len(endTime) - 1] + " seconds and it took " + str(stepsTaken) + " steps")
