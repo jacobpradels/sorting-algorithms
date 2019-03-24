@@ -1,0 +1,20 @@
+
+Data set for Bubble Sort algorithm over 100 iterations with 20 items.
+Average Steps : 942
+Steps : 94208
+Time : 25.32402
+
+Data set for Insertion Sort algorithm over 100 iterations with 20 items.
+Average Steps : 942
+Steps : 94251
+Time : 27.91413
+
+Data set for Bubble Sort algorithm over 100 iterations with 20 items.
+Average Steps : 945
+Steps : 94539
+Time : 27.18766
+
+Data set for Bubble Sort algorithm over 100 iterations with 5 items.
+Average Steps : 199
+Steps : 19916
+Time : 1.43818
